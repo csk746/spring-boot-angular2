@@ -1,13 +1,9 @@
 package io.abnd.Controller;
 
 import io.abnd.Service.TestInt;
-import io.abnd.model.Message;
+import io.abnd.model.Content;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by lee on 2016. 11. 1..
@@ -18,8 +14,14 @@ public class TestController {
     @Autowired
     TestInt testInt;
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    void ttt(){
+    @RequestMapping(value = "/test", method = RequestMethod.POST)
+    void ttt(@RequestBody Content content){
+        int s = content.id;
+        String s2 = content.name;
+        String s3 = content.content;
+
+        String s4=s2+s3;
+
         testInt.test();
     }
 }

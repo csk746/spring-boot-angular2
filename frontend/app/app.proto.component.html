@@ -1,0 +1,12 @@
+<h1>{{title}}</h1>
+<h2>DOC proto</h2>
+<ul class="proto">
+    <li *ngFor="let content of contents" (click)="onSelect(content)">
+    <!--(click)="onSelect(content)">-->
+        <span class="badge">{{content.id}}</span> {{content.name}} {{content.content}}
+    </li>
+    <input placeholder="id" [(ngModel)]="inputContent.id" >
+    <input placeholder="name" [(ngModel)]="inputContent.name" >
+    <input placeholder="content" [(ngModel)]="inputContent.content">
+    <button (click)="onSend()">전송</button>
+</ul>

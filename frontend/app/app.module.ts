@@ -4,10 +4,11 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
-import { AppComponent }  from './app.component';
-import { HeroDetailComponent } from './hero-detail.component';
-import {HttpModule} from "@angular/http";
-import {HeroService} from "./hero.service";
+import { ProtoComponent }  from './app.proto.component';
+import { HeroDetailComponent } from './refer_hero-detail.component';
+import { HttpModule } from "@angular/http";
+import { HeroService } from "./refer_hero.service";
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -15,11 +16,10 @@ import {HeroService} from "./hero.service";
         HttpModule
     ],
     declarations: [
-        AppComponent,
-        HeroDetailComponent
+        ProtoComponent,
     ],
-    bootstrap: [ AppComponent ],
+    bootstrap: [ ProtoComponent ],
 
-    providers: [HeroService]
+    // providers: [HeroService]
 })
 export class AppModule { }

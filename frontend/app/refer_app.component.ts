@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { Hero } from './hero';
+import { Hero } from './refer_hero';
 import {Http} from "@angular/http";
-import {HeroService} from "./hero.service";
+import {HeroService} from "./refer_hero.service";
 const HEROES: Hero[] = [
     { id: 11, name: 'Mr. Nice' },
     { id: 12, name: 'Narco' },

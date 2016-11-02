@@ -1,12 +1,29 @@
+<div class="container">
 <h1>{{title}}</h1>
 <h2>DOC proto</h2>
+    <br>
 <ul class="proto">
     <li *ngFor="let content of contents" (click)="onSelect(content)">
     <!--(click)="onSelect(content)">-->
-        <span class="badge">{{content.id}}</span> {{content.name}} {{content.content}}
+        <label class="title">{{content.id}}</label> {{content.name}} {{content.content}}
     </li>
-    <input placeholder="id" [(ngModel)]="inputContent.id" >
-    <input placeholder="name" [(ngModel)]="inputContent.name" >
-    <input placeholder="content" [(ngModel)]="inputContent.content">
-    <button (click)="onSend()">전송</button>
+    <br>
+    <span class="typeNameLabel">id : {{content.id}}</span> <br>
+    <span>name : {{content.name}} </span><br>
+    <span>content : {{content.content}}</span><br>
+    <br>
+    <form (ngSubmit)="onSubmit()" #contentForm="ngForm">
+    <div class="form-group">
+    <input name="id" type="text" class="form-control" placeholder="id" [(ngModel)]="content.id" >
+    <br>
+    <input name="name" type="text" class="form-control" placeholder="name" [(ngModel)]="content.name" >
+    <br>
+    <input name="content" type="text" class="form-control" placeholder="content" [(ngModel)]="content.content">
+    <br>
+    <button class="btn btn-default" type="submit" (click)="onSend(content)">전송</button>
+    <br>
+    <br>
+    </div>
+    </form>
 </ul>
+</div>

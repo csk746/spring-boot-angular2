@@ -4,16 +4,16 @@ package io.abnd.model;
  * Created by lee on 2016. 11. 1..
  */
 public class Content {
-    public Integer id;
+    public String id;
     public String name;
     public String content;
 
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

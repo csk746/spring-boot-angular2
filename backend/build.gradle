@@ -8,6 +8,8 @@ buildscript {
 		// spring
 		classpath('org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE')
 		classpath('org.springframework:springloaded:1.2.6.RELEASE')
+
+
 	}
 }
 
@@ -47,6 +49,11 @@ configurations {
 }
 
 dependencies {
+	compile("org.springframework.boot:spring-boot-starter-jdbc")
+
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+
+	compile("com.h2database:h2")
 	// spring
 	compile('org.springframework.boot:spring-boot-starter-web')
 	// google gson
@@ -57,6 +64,10 @@ dependencies {
 
 	// testing
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+
+	runtime("com.h2database:h2")
+
+	runtime('org.postgresql:postgresql')
 }
 
 // run spring boot app

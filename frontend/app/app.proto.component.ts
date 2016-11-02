@@ -2,18 +2,16 @@
  * Created by lee on 2016. 11. 1..
  */
 
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {Content} from './content';
-import {Http} from "@angular/http";
+import {Http,Headers,RequestOptions} from "@angular/http";
 import 'rxjs/add/operator/map';
-
 const CONTENTS: Content[] = [
     { id: 1, name: 'name',content:'content' },
 ];
 
 const INPUTCONTENT :Content =
-    { id: 2, name: 'name2',content:'content2' };
-
+    { id: 0, name: "",content:"" };
 
 @Component({
     selector: 'proto-main',
@@ -22,6 +20,9 @@ const INPUTCONTENT :Content =
 })
 
 export class ProtoComponent implements OnInit {
+
+    public content = {id:0, name:"",content:""};
+
     constructor(private http:Http) { }
 
     ngOnInit() { }
@@ -34,8 +35,16 @@ export class ProtoComponent implements OnInit {
     onSelect(content :Content){
         alert("!!!!!!!!!!!!!")
     }
-    onSend(){
-        this.http.post('http://localhost:8080/test', this.inputContent).map(res =>res.text()).subscribe();
+    headers = new Headers({'Content-Type':'text/plain'});
+
+    options = new RequestOptions({headers:this.headers});
+    private jsonString;
+
+
+
+    onSend(content){
+        this.jsonString =JSON.stringify(content);
+        this.http.post('http://localhost:8080/test', this.jsonString,this.options).map(res =>res.text()).subscribe();
     }
 }
 

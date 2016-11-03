@@ -8,6 +8,12 @@ public class Content {
     public String name;
     public String content;
 
+    public Content(String id, String name, String content) {
+        this.id = id;
+        this.name=name;
+        this.content=content;
+    }
+
 
     public String getId() {
         return id;

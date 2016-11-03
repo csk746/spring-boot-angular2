@@ -1,6 +1,8 @@
 package io.abnd.Controller;
 
+import io.abnd.Repasitory.ContentRepository;
 import io.abnd.Service.TestInt;
+import io.abnd.domain.DOBackOffice;
 import io.abnd.model.Content;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.BasicJsonParser;
@@ -33,7 +35,12 @@ public class TestController {
         String s3 = li.get("content")+"";
 
         System.out.println(s1+"  " + s2+"  "+s3);
-        testInt.test();
+        DOBackOffice d = new DOBackOffice();
+        d.setId(s1);
+        d.setName(s2);
+        d.setContent(s3);
+        testInt.test(d);
+
 
     }
 }

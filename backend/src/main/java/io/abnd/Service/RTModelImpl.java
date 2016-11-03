@@ -2,21 +2,23 @@ package io.abnd.Service;
 
 import io.abnd.Repasitory.ContentRepository;
 import io.abnd.domain.DOBackOffice;
-import io.abnd.model.Content;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
- * Created by lee on 2016. 11. 1..
+ * Created by lee on 2016. 11. 3..
  */
 @Service
-public class TestImpl implements TestInt {
-
+public class RTModelImpl implements RTModel {
     @Autowired
     ContentRepository contentRepository;
 
     @Override
-    public void test(DOBackOffice c) {
-        contentRepository.save(c);
+    public List<DOBackOffice> rtModel() {
+
+        System.out.println("리턴값 뭐임               "+ contentRepository.findAll());
+        return contentRepository.findAll();
     }
 }

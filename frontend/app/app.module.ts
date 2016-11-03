@@ -4,11 +4,8 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
-import { ProtoComponent }  from './app.proto.component';
-import { HeroDetailComponent } from './refer_hero-detail.component';
-import { HttpModule } from "@angular/http";
-import { HeroService } from "./refer_hero.service";
-
+import {HttpModule} from "@angular/http";
+import {ProtoComponent} from "./app.proto.component";
 @NgModule({
     imports: [
         BrowserModule,
@@ -20,6 +17,6 @@ import { HeroService } from "./refer_hero.service";
     ],
     bootstrap: [ ProtoComponent ],
 
-    // providers: [HeroService]
+    providers: []
 })
 export class AppModule { }

@@ -16,6 +16,7 @@ import javax.persistence.Table;
 @Entity
 
 public class DOBackOffice {
+
     @Id
     @Column
     String id;

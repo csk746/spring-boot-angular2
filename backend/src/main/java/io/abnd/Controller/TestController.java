@@ -1,6 +1,7 @@
 package io.abnd.Controller;
 
 import io.abnd.Repasitory.ContentRepository;
+import io.abnd.Service.RTModel;
 import io.abnd.Service.TestInt;
 import io.abnd.domain.DOBackOffice;
 import io.abnd.model.Content;
@@ -22,25 +23,45 @@ public class TestController {
     @Autowired
     TestInt testInt;
 
+    @Autowired
+    RTModel rtModel;
+
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/test")
-    void init(@RequestBody  String content){
+    void init(@RequestBody String content){
 
         JsonParser parser = new BasicJsonParser();
-//        System.out.println(content);
+
         Map<String, Object> li = parser.parseMap(content);
 
         String s1 = li.get("id")+"";
         String s2 = li.get("name")+"";
         String s3 = li.get("content")+"";
 
-        System.out.println(s1+"  " + s2+"  "+s3);
         DOBackOffice d = new DOBackOffice();
+
         d.setId(s1);
         d.setName(s2);
         d.setContent(s3);
+
         testInt.test(d);
 
+    }
+
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/test2")
+    @ResponseBody
+    String test2(){
+        System.out.println("!~~~~~~~~~~~~~~~~~~~~~~~~");
+        List<DOBackOffice> li =rtModel.rtModel();
+        Iterator<DOBackOffice> it = li.iterator();
+        if (it.hasNext()) {
+            for (DOBackOffice a : li) {
+                System.out.println(a.toString()+"!!!!!!!!!!!!!");
+            }
+        }
+        return "111";
 
     }
 }
